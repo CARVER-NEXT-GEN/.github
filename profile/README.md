@@ -197,6 +197,15 @@ To use interfaces you can follow [Carver_Interface
 - **uros_carver_interface_node**
   This node will publish every data from microcontroller.
 
+And to control robot with interface, data from carver interface will send to `carver odrive manual steering` to control wheel's motor.
+
+*rqt graph of carver interfaces with carver odrive manual steering*
+
+<p align="center"><img src="images/rqt_uros_odrive.png" alt="" /></p>
+
+- **carver_odrive_manual_steering**
+  This node will subscribe the data from carver interface and publish cmd_vel to control wheel's motor.
+
 ### Visualization
 
 #### 1. Carver description
