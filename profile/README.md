@@ -242,7 +242,7 @@ Point cloud data after merged two lidars together
 To create a map, run following command:
 
 ```bash
-ros2 launch ....
+ros2 launch carver_controller carver_mapping.launch.py
 ```
 
 After you have created a map, you can save it using the following command:
@@ -251,11 +251,57 @@ After you have created a map, you can save it using the following command:
 ros2 run nav2_map_server map_saver_cli -f <map_name>
 ```
 
+This launch file contains the following nodes:
+
+<p align="center"><img src="images/rqt_full.png" alt="Insert this image with Teleop website" /></p>
+
+Node for visualize robot description
+- **rviz**
+  This node will subscribe any topic to visualize.
+- **robot_state_publisher**
+  This node will publish transformation by "/tf" and "/tf_static" of robot and publish "/robot_description" for visualize model robot and relationship between frame by URDF file.
+
+Node from low-level (STM32)
+- **uros_AMT_Node**
+  This will subscribe "/steering_angle" and "/steering_mode" to control real steering and publish "/amt_publisher" that are angle position.
+- **uros_carver_interface_node**
+  This node will send state of emergency button("/carver_emergency"), throttle data("/accl_publisher") and forward and reverse direction of robot from button ("/accel_direction").  
+- **bno_055_node**
+  This node will send imu data of BNO055 in float array "/bno055_cubemx".
+- **bno_086_node**
+  This node will send imu data of BNO086 in float array "/bno086_cubemx".
+
+Node about lidar (RPLIDAR s3)
+- **rplidar_node_1 and rplidar_node_2**
+  This node will start two lidar and publish laser scan with "/lidar_1/scan" and "/lidar_2/scan".
+- **ros2_laser_scan_merger**
+  This node will subscribe"/lidar_1/scan" and "/lidar_2/scan" to merge laser scan to point cloud and publish "/cloud_in".
+- **pointcloud_to_laserscan**
+  This node will convert point cloud from "/cloud_in" to laser scan and publish "/scan".
+
+Node for calculation odometry
+- **carver_odrive_manual_steering**
+  This node will subscribe "/accl_publisher" and "/accel_direction" to calculate wheel speed and publish "/feedback_wheelspeed".
+- **carver_messenger**
+  This node will subscribe "/bno055_cubemx" and "/bno086_cubemx" to put in Imu Message and MagneticField Message and publish it by "/imu_086/data", "/imu_086/mag", "/imu_055/data", "/imu_055/mag".
+- **ackerman_odom**
+  This node will subscribe "/feedback_wheelspeed" and "/imu_055/data" to create odom that calculated using a yaw_rate and publish "/yaw_rate/odom".
+
+Node about mapping and localization
+- **/ekf_filter_node**
+  This node will subscribe "/yaw_rate/odom" and "/imu_055/data" to fusion is achieved through an Extended Kalman Filter (EKF) implemented with the robot_localization package, then publish "/odometry/filtered" and "/tf".
+- **/slam_toolbox**
+  This node will subscribe "/scan" for mapping and localization then it publish "/map".
+
 #### 4. Using map
+
+⚠️**Warning:** This feature is in progress, we will update soon.
 
 To use map that you create, you need to use some tool for editing some area in map that you need to do. After that you must ..........
 
 ### Localization
+
+⚠️**Warning:** This feature is in progress, we will update soon.
 
 We can visualize our robot on the mapped environment in real-time, allowing us to monitor its position and movement within the map dynamically.
 
