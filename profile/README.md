@@ -41,7 +41,7 @@ This project involves the development of an autonomous Ackermann steering mobile
 
 <p align="center"><img src="images/Carver System Architecture - Carver System Architecture.jpg" alt="Image Description" /></p>
 
-You can read full systen architecture via this link -> [Full system architecture](https://miro.com/app/board/uXjVLuVrW2E=/?moveToWidget=3458764613100769122&cot=14)
+You can read full system architecture via this link -> [Full system architecture](https://miro.com/app/board/uXjVLuVrW2E=/?moveToWidget=3458764613100769122&cot=14)
 
 ## Components of the Robot
 
@@ -203,6 +203,11 @@ This command opens a graphical interface displaying the relationships between di
 
 Use this visualization to understand how different parts of the robot are related in terms of coordinate frames. Feel free to adjust the paths and commands based on your actual file locations and robot system. Happy exploring!
 
+### Controller
+
+### 
+
+
 ### Mapping
 
 To perform map creation, we merged point cloud data from multiple sensors on the robot to enhance the accuracy and completeness of the collected environment data. This data is then utilized in LiDAR based SLAM (Simultaneous Localization and Mapping), a process that allows the robot to simultaneously map the environment while estimating its own position within it. By integrating point clouds from various sensors, we reduce blind spots, improve map resolution, and ensure consistency in the representation of the environment. This approach enables the robot to construct a detailed and precise map of the desired location, even in complex or dynamic environments.
@@ -244,6 +249,8 @@ To use map that you create, you need to use some tool for editing some area in m
 We can visualize our robot on the mapped environment in real-time, allowing us to monitor its position and movement within the map dynamically.
 
 ### Teleoperation
+
+⚠️**Warning:** This feature is in progress, we will update soon.
 
 This feature is about to control robot via website call teleoperation mode. To connect the website you can click this link [Teleoperation website](). After you connect to website you will able to control robot but you need to change mode of robot at carver interfaces first.
 
