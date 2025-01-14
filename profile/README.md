@@ -120,13 +120,23 @@ git clone https://github.com/CARVER-NEXT-GEN/CARVER_WS.git
 
 In this section show how to use this project.
 
-- Launch the carver_ws to started robot.
+- To use any feature in this project you can following command below.
 
   ```bash
-  ros2 launch ???
+  ros2 launch feature_package feature_launch_file
   ```
 
-After launch carver_ws you can switch mode at Carver Interface(HMI) to select and control robot.
+  or
+
+  ```bash
+  ros2 run feature_package feature_launch_file
+  ```
+
+  example: If you want to creating the map, run this command below.
+
+  ```bash
+  ros2 launch carver_controller carver_mapping.launch.py
+  ```  
 
 ## Features
 
@@ -191,22 +201,19 @@ You can use the [Carver_Description_package](https://github.com/CARVER-NEXT-GEN/
 
 <p align="center"><img src="images/only_tf.png" alt="" /></p>
 
-#### 2. View Transformations Execute the following command to watch the relationships between the robot's transformations
+4. View Transformations Execute the following command to watch the relationships between the robot's transformations
+  
+    ```bash
+    ros2 run tf2_tools view_frames 
+    ```
 
-```bash
-ros2 run tf2_tools view_frames 
-```
+    This command opens a graphical interface displaying the relationships between different frames. The provided link shows an example image capturing these transformations:
 
-This command opens a graphical interface displaying the relationships between different frames. The provided link shows an example image capturing these transformations:
+    <p align="center"><img src="images/tf2_view.png" alt="" /></p>
 
-<p align="center"><img src="images/tf2_view.png" alt="" /></p>
+    Use this visualization to understand how different parts of the robot are related in terms of coordinate frames. Feel free to adjust the paths and commands based on your actual file locations and robot system. Happy exploring!
 
-Use this visualization to understand how different parts of the robot are related in terms of coordinate frames. Feel free to adjust the paths and commands based on your actual file locations and robot system. Happy exploring!
-
-### Controller
-
-### 
-
+#### 2. 
 
 ### Mapping
 
@@ -216,7 +223,11 @@ To perform map creation, we merged point cloud data from multiple sensors on the
 
 #### 1. Odometry
 
-Before you can creating the map, you need to have odometry of robot. We decided to use .....
+The robot use odometry to estimate position. We use odometry from yaw_rate that incorporates feedback from wheel velocity and yaw information from IMU, But it still have error or slip.
+
+To fix this we use Extended Kalman Filter (EKF) implemented with the robot_localization package.
+
+EKF will estimations of pose for reduce noisy or gaps in the data during the estimation process. and at last EKF will get **"/odometry/filtered"** topic.
 
 #### 2. Pre-setup sensor
 
@@ -237,7 +248,7 @@ ros2 launch ....
 After you have created a map, you can save it using the following command:
 
 ```bash
-ros2 launch ....
+ros2 run nav2_map_server map_saver_cli -f <map_name>
 ```
 
 #### 4. Using map
@@ -257,6 +268,8 @@ This feature is about to control robot via website call teleoperation mode. To c
 <p align="center"><img src="" alt="Insert this image with Teleop website" /></p>
 
 ### Navigation
+
+⚠️**Warning:** This feature is in progress, we will update soon.
 
 To run navigation mode of this robot you need to select mode at carver interfaces to auto mode. After that you can use this mode in rviz2 window.
 
