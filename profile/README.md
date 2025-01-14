@@ -188,7 +188,14 @@ The Carver system features a robust Human-Machine Interface (HMI) to provide int
      - **Parking Lights**
 
 To use interfaces you can follow [Carver_Interface
-](https://github.com/CARVER-NEXT-GEN/Carver_Interface/tree/main).
+](https://github.com/CARVER-NEXT-GEN/Carver_Interface/tree/main). After follow this repository you will got micro_ros agent to connect main computer with microcontroller.
+
+*rqt graph of carver interfaces*
+
+<p align="center"><img src="images/rqt_uros.png" alt="" /></p>
+
+- **uros_carver_interface_node**
+  This node will publish every data from microcontroller.
 
 ### Visualization
 
@@ -208,7 +215,7 @@ You can use the [Carver_Description_package](https://github.com/CARVER-NEXT-GEN/
 
 <p align="center"><img src="images/only_tf.png" alt="" /></p>
 
-4. View Transformations Execute the following command to watch the relationships between the robot's transformations
+#### 2. View Transformations Execute the following command to watch the relationships between the robot's transformations
   
     ```bash
     ros2 run tf2_tools view_frames 
@@ -229,7 +236,9 @@ You can use the [Carver_Description_package](https://github.com/CARVER-NEXT-GEN/
 - **robot_state_publisher**
   This node will publish transformation by "/tf" and "/tf_static" of robot and publish "/robot_description" for visualize model robot and relationship between frame by URDF file.
 
-#### 2. LiDAR in description
+### Sensors preparation
+
+#### RPLiDAR
 
 In Carver description you can see the laser scan around robot that come from 2 rplidar and we need to merge them into one laser scan data.
 
