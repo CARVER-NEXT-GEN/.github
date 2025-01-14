@@ -2,7 +2,11 @@
 
 **This is Autonomous ackerman steering mobile robot class project in FRA501(Robotics Development) at *FIBO*.**
 
-<p align="center"><img src="" alt="Insert this image by CARVER picture." /></p>
+<p align="center"><img src="images/carver iso.jpg" alt="Insert this image by CARVER picture." /></p>
+
+<p align="center"><img src="images/carver side.jpg" alt="Insert this image by CARVER picture." /></p>
+
+<p align="center"><img src="images/carver back.jpg" alt="Insert this image by CARVER picture." /></p>
 
 <details>
   <summary>Table of Contents</summary>
@@ -142,7 +146,7 @@ In this section show how to use this project.
 
 ### Carver Interface
 
-<p align="center"><img src="" alt="Insert this image with carver interface image" /></p>
+<p align="center"><img src="images/carver interfaces.jpg" alt="Insert this image with carver interface image" /></p>
 
 The Carver system features a robust Human-Machine Interface (HMI) to provide intuitive control and operational flexibility. Users can select various modes and interact with the system effectively:
 
@@ -183,6 +187,9 @@ The Carver system features a robust Human-Machine Interface (HMI) to provide int
      - **Turn Signal Lights**
      - **Parking Lights**
 
+To use interfaces you can follow [Carver_Interface
+](https://github.com/CARVER-NEXT-GEN/Carver_Interface/tree/main).
+
 ### Visualization
 
 #### 1. Carver description
@@ -213,7 +220,38 @@ You can use the [Carver_Description_package](https://github.com/CARVER-NEXT-GEN/
 
     Use this visualization to understand how different parts of the robot are related in terms of coordinate frames. Feel free to adjust the paths and commands based on your actual file locations and robot system. Happy exploring!
 
-#### 2. 
+*rqt graph of carver description*
+
+<p align="center"><img src="images/description_rqt.png" alt="" /></p>
+
+- **rviz**
+  This node will subscribe any topic to visualize.
+- **robot_state_publisher**
+  This node will publish transformation by "/tf" and "/tf_static" of robot and publish "/robot_description" for visualize model robot and relationship between frame by URDF file.
+
+#### 2. LiDAR in description
+
+In Carver description you can see the laser scan around robot that come from 2 rplidar and we need to merge them into one laser scan data.
+
+1. We use [rplidar_ros](https://github.com/CARVER-NEXT-GEN/rplidar_ros.git) to started 2 rplidar. After that we will have 2 node call `rplidar_node_1` and `rplidar_node_2`. They publish 2 point cloud data topic call `lidar_1/scan` and `lidar_2/scan`.
+
+2. After we have point cloud data from those sensor, we use [pointcloud_to_laserscan](https://github.com/CARVER-NEXT-GEN/pointcloud_to_laserscan.git) to transfrom point cloud data to laser scan for use with slamtoolbox.
+
+<p align="center"><img src="images/Before merge lidar.png" alt="" /></p>
+
+3. After we have laser scan from those lidars, we merge 2 lidars together to prepare data for slamtoolbox. To merge lidar data we use [ros2_laser_scan_merger](https://github.com/CARVER-NEXT-GEN/ros2_laser_scan_merger.git) to merge data.
+
+<p align="center"><img src="images/After merge lidar.png" alt="" /></p>
+
+*rqt graph of lidar data*
+<p align="center"><img src="images/rqt_lidar.png" alt="" /></p>
+
+- **rplidar_node_1 and rplidar_node_2**
+  This node will start two lidar and publish laser scan with "/lidar_1/scan" and "/lidar_2/scan".
+- **ros2_laser_scan_merger**
+  This node will subscribe"/lidar_1/scan" and "/lidar_2/scan" to merge laser scan to point cloud and publish "/cloud_in".
+- **pointcloud_to_laserscan**
+  This node will convert point cloud from "/cloud_in" to laser scan and publish "/scan".
 
 ### Mapping
 
@@ -229,15 +267,8 @@ To fix this we use Extended Kalman Filter (EKF) implemented with the robot_local
 
 EKF will estimations of pose for reduce noisy or gaps in the data during the estimation process. and at last EKF will get **"/odometry/filtered"** topic.
 
-#### 2. Pre-setup sensor
 
-Because CARVER has 2 RPLiDARs, we need to merge this two sensors with this package first to prepare the sensor data for mapping package. You can go to [merge_2D_Lidar](https://github.com/CARVER-NEXT-GEN/merge_2D_Lidar.git) to see how to merge 2 LiDAR together.
-
-Point cloud data after merged two lidars together
-
-<p align="center"><img src="" alt="Insert this image with Teleop website" /></p>
-
-#### 3. Creating map
+#### 2. Creating map
 
 To create a map, run following command:
 
@@ -293,7 +324,7 @@ Node about mapping and localization
 - **/slam_toolbox**
   This node will subscribe "/scan" for mapping and localization then it publish "/map".
 
-#### 4. Using map
+#### 3. Using map
 
 ⚠️**Warning:** This feature is in progress, we will update soon.
 
