@@ -217,15 +217,15 @@ You can use the [Carver_Description_package](https://github.com/CARVER-NEXT-GEN/
 
 #### 2. View Transformations Execute the following command to watch the relationships between the robot's transformations
   
-    ```bash
-    ros2 run tf2_tools view_frames 
-    ```
+```bash
+ros2 run tf2_tools view_frames 
+```
 
-    This command opens a graphical interface displaying the relationships between different frames. The provided link shows an example image capturing these transformations:
+This command opens a graphical interface displaying the relationships between different frames. The provided link shows an example image capturing these transformations:
 
-    <p align="center"><img src="images/tf2_view.png" alt="" /></p>
+<p align="center"><img src="images/tf2_view.png" alt="" /></p>
 
-    Use this visualization to understand how different parts of the robot are related in terms of coordinate frames. Feel free to adjust the paths and commands based on your actual file locations and robot system. Happy exploring!
+Use this visualization to understand how different parts of the robot are related in terms of coordinate frames. Feel free to adjust the paths and commands based on your actual file locations and robot system. Happy exploring!
 
 *rqt graph of carver description*
 
