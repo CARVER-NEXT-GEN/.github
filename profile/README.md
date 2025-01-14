@@ -251,13 +251,13 @@ Use this visualization to understand how different parts of the robot are relate
 
 In Carver description you can see the laser scan around robot that come from 2 rplidar and we need to merge them into one laser scan data.
 
-1. We use [rplidar_ros](https://github.com/CARVER-NEXT-GEN/rplidar_ros.git) to started 2 rplidar. After that we will have 2 node call `rplidar_node_1` and `rplidar_node_2`. They publish 2 point cloud data topic call `lidar_1/scan` and `lidar_2/scan`.
+1. We use [rplidar_ros](https://github.com/CARVER-NEXT-GEN/rplidar_ros.git) to started 2 rplidar. After that we will have 2 node call `rplidar_node_1` and `rplidar_node_2`. They publish 2 laser scan data topic call `lidar_1/scan` and `lidar_2/scan`.
 
-2. After we have point cloud data from those sensor, we use [pointcloud_to_laserscan](https://github.com/CARVER-NEXT-GEN/pointcloud_to_laserscan.git) to transfrom point cloud data to laser scan for use with slamtoolbox.
+2. After we have laser scan data from those sensor, we merge 2 lidars together. To merge lidar data we use [ros2_laser_scan_merger](https://github.com/CARVER-NEXT-GEN/ros2_laser_scan_merger.git) to merge data and then it will transform to point cloud in topic `cloud_in`
 
 <p align="center"><img src="images/Before merge lidar.png" alt="" /></p>
 
-3. After we have laser scan from those lidars, we merge 2 lidars together to prepare data for slamtoolbox. To merge lidar data we use [ros2_laser_scan_merger](https://github.com/CARVER-NEXT-GEN/ros2_laser_scan_merger.git) to merge data.
+3. After we have point cloud from those lidars, we must transform point cloud back to laser scan. we use [pointcloud_to_laserscan](https://github.com/CARVER-NEXT-GEN/pointcloud_to_laserscan.git) to transfrom point cloud data to laser scan for use with slamtoolbox, at last it will publish laser scan data topic call`scan`.
 
 <p align="center"><img src="images/After merge lidar.png" alt="" /></p>
 
