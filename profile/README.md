@@ -47,6 +47,14 @@ This project involves the development of an autonomous Ackermann steering mobile
 
 You can read full system architecture via this link -> [Full system architecture](https://miro.com/app/board/uXjVLuVrW2E=/?moveToWidget=3458764613100769122&cot=14)
 
+### Demonstrate
+
+You can click this [link](https://www.youtube.com/watch?v=LT-cnW9JqOo) or picture below to go to youtube video.
+
+[![Watch the video](https://img.youtube.com/vi/LT-cnW9JqOo/maxresdefault.jpg)](https://www.youtube.com/watch?v=LT-cnW9JqOo)
+
+This video will demonstrate how this robot do mapping using SLAM.
+
 ## Components of the Robot
 
 In this section show what sensors, actuators, microcontrollers or etc. we use in this project. And you can click the link that embeded on components name to see what they use for or how it's work.
@@ -54,7 +62,7 @@ In this section show what sensors, actuators, microcontrollers or etc. we use in
 ### 1. Laser and Sensor
 
 - [2D RPLIDAR C1 Laser](https://github.com/CARVER-NEXT-GEN/RPLiDAR-C1-2D-LiDAR) (GIT)
-- [3D RPLIDAR C16](https://github.com/CARVER-NEXT-GEN/LSLiDAR-C16-3D-LiDAR) (GIT)
+- [3D LSLIDAR C16](https://github.com/CARVER-NEXT-GEN/LSLiDAR-C16-3D-LiDAR) (GIT)
 - [LD-MRS400001](https://github.com/CARVER-NEXT-GEN/SICK-LD-MRS400001-3D-LiDAR) (GIT)
 - [Realsense L515](https://github.com/CARVER-NEXT-GEN/Intel-RealSense) (GIT)
 
