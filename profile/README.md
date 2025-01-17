@@ -61,19 +61,19 @@ In this section show what sensors, actuators, microcontrollers or etc. we use in
 
 ### 1. Laser and Sensor
 
-- [2D RPLIDAR C1 Laser](https://github.com/CARVER-NEXT-GEN/RPLiDAR-C1-2D-LiDAR) (GIT)
+- [2D RPLIDAR C1 Laser](https://github.com/CARVER-NEXT-GEN/merge_2D_Lidar) (GIT)
 - [3D LSLIDAR C16](https://github.com/CARVER-NEXT-GEN/LSLiDAR-C16-3D-LiDAR) (GIT)
 - [LD-MRS400001](https://github.com/CARVER-NEXT-GEN/SICK-LD-MRS400001-3D-LiDAR) (GIT)
 - [Realsense L515](https://github.com/CARVER-NEXT-GEN/Intel-RealSense) (GIT)
 
 ### 2. IMU
 
-- [BNO055](https://www.adafruit.com/product/2472)
-- [BNO086](https://docs.sparkfun.com/SparkFun_VR_IMU_Breakout_BNO086_QWIIC/introduction/)
+- [BNO055](https://github.com/CARVER-NEXT-GEN/Adafruit-9-DOF-Absolute-Orientation-IMU-Fusion-Breakout---BNO055/tree/G4_UROS_UART) (GIT)
+- [BNO086](https://github.com/CARVER-NEXT-GEN/SparkFun-VR-IMU-Breakout-BNO086-Qwiic-SPI/tree/G4_UROS_UART) (GIT)
 
 ### 3. GPS
 
-- [SparkFun GPS-RTK Dead Reckoning Kit](https://github.com/CARVER-NEXT-GEN/SparkFun-VR-IMU-Breakout-BNO086-Qwiic-SPI) (GIT)
+- [SparkFun GPS-RTK Dead Reckoning Kit](https://github.com/CARVER-NEXT-GEN/carver_gps) (GIT)
 - [GNSS Multi-Band L1/L2 Surveying Antenna](https://github.com/CARVER-NEXT-GEN/carver_gps) (GIT)
 
 ### 4. Microcontroller
@@ -92,7 +92,7 @@ In this section show what sensors, actuators, microcontrollers or etc. we use in
 
 ### 7. Encoder
 
-- [AMT21EV](https://github.com/CARVER-NEXT-GEN/AMT212E-V) (GIT)
+- [AMT21EV](https://github.com/CARVER-NEXT-GEN/AMT212E-V/tree/G474RE) (GIT)
 
 ## Prerequisites
 
