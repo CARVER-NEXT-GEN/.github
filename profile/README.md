@@ -47,7 +47,6 @@ This project involves the development of an autonomous Ackermann steering mobile
 
 You can read full system architecture via this link -> [Full system architecture](https://miro.com/app/board/uXjVLuVrW2E=/?moveToWidget=3458764613100769122&cot=14})
 
-You can view the README of the electrical system via this link -> [Carver_Electrical](https://github.com/CARVER-NEXT-GEN/Carver_Electrical)
 
 ### Demonstrate
 
@@ -95,6 +94,9 @@ In this section show what sensors, actuators, microcontrollers or etc. we use in
 ### 7. Encoder
 
 - [AMT21EV](https://github.com/CARVER-NEXT-GEN/AMT212E-V/tree/G474RE) (GIT)
+
+### 8. Electrical
+- [README](https://github.com/CARVER-NEXT-GEN/Carver_Electrical)
 
 ## Prerequisites
 
