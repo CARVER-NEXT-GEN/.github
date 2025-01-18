@@ -45,8 +45,9 @@ This project involves the development of an autonomous Ackermann steering mobile
 
 <p align="center"><img src="images/Carver System Architecture - Carver System Architecture.jpg" alt="Image Description" /></p>
 
-You can read full system architecture via this link -> [Full system architecture](https://miro.com/app/board/uXjVLuVrW2E=/?moveToWidget=3458764613100769122&cot=14)
-You can view the README of the electrical system via this link -> [Carver_Electrical]([https://miro.com/app/board/uXjVLuVrW2E=/?moveToWidget=3458764613100769122&cot=14](https://github.com/CARVER-NEXT-GEN/Carver_Electrical))
+You can read full system architecture via this link -> [Full system architecture](https://miro.com/app/board/uXjVLuVrW2E=/?moveToWidget=3458764613100769122&cot=14})
+
+You can view the README of the electrical system via this link -> [Carver_Electrical](https://github.com/CARVER-NEXT-GEN/Carver_Electrical)
 
 ### Demonstrate
 
